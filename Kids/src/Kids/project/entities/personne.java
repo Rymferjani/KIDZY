@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Kids.project.entities;
 
-/**
- *
- * @author Youssef Mimouni
- */
-public class personne {
+package kids.project.entities;
+
+import java.util.Comparator;
+
+
+public class personne implements Comparator<personne>{
     private int id;
     private String login;
     private String password;
@@ -22,6 +17,40 @@ public class personne {
 
     public personne() {
     }
+
+    public personne(int id, String login, String password, String nom, String prenom, String image, String cin, String tel, String role) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.image = image;
+        this.cin = cin;
+        this.tel = tel;
+        this.role = role;
+    }
+    public personne( String login, String password, String nom, String prenom, String image, String cin, String tel, String role) {
+        
+        this.login = login;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.image = image;
+        this.cin = cin;
+        this.tel = tel;
+        this.role = role;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+   
+    
 
     public void setId(int id) {
         this.id = id;
@@ -54,6 +83,7 @@ public class personne {
     public void setRole(String role) {
         this.role = role;
     }
+
     public int getId() {
         return id;
     }
@@ -86,6 +116,11 @@ public class personne {
         return role;
     }
 
+    @Override
+    public String toString() {
+        return "personne{" + "id=" + id + ", login=" + login + ", password=" + password + ", nom=" + nom + ", prenom=" + prenom + ", image=" + image + ", cin=" + cin + ", tel=" + tel + ", role=" + role + '}';
+    }
+
     
 
     @Override
@@ -113,10 +148,12 @@ public class personne {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "personne{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", password=" + password + ", cin=" + cin + ", tel=" + tel + ", role=" + role + '}';
+   public int compare(personne o1, personne o2) { 
+        return (o1.getNom().compareTo(o2.getNom()));
     }
+    
+
+   
     
 
    
