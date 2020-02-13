@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.project.servicies;
+package kids.project.services;
 
-import edu.project.entities.seance;
-import edu.project.utils.connexion;
+import Kids.project.utils.DataBase;
+import kids.project.entities.seance;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +24,7 @@ public class seanceService {
     Statement st;
     
 public  seanceService (){
-            cnx2 = connexion.getInstance().getCnx();
+            cnx2 = DataBase.getInstance().getConnection();
 }
     public void ajouterSeance(seance se) throws SQLException {
        

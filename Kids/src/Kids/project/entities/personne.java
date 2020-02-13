@@ -147,7 +147,7 @@ public class personne implements Comparator<personne>{
         }
         return true;
     }
-
+@Override
    public int compare(personne o1, personne o2) { 
         return (o1.getNom().compareTo(o2.getNom()));
     }

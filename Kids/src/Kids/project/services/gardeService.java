@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.project.servicies;
+package kids.project.services;
 
-import edu.project.entities.classe;
-import edu.project.entities.garde;
-import edu.project.utils.connexion;
+import Kids.project.utils.DataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import kids.project.entities.garde;
 
 /**
  *
@@ -25,7 +24,7 @@ public class gardeService {
     Statement st;
     
 public  gardeService (){
-            cnx2 = connexion.getInstance().getCnx();
+            cnx2 = DataBase.getInstance().getConnection();
 }
     public void ajoutergarde(garde g) throws SQLException {
        

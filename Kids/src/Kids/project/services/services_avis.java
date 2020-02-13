@@ -56,7 +56,8 @@ public class services_avis implements Iservices_avis<avis>{
                String desc=rs.getString(4);
                String reponse=rs.getString(5);
              
-               avis p=new avis(id, date, desc, reponse);
+               avis p=new avis(date, desc, reponse);
+               p.setId_avis(id);
      arr.add(p);
      }
     return arr;

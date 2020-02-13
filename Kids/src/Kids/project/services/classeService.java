@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.project.servicies;
+package kids.project.services;
 
-import edu.project.entities.classe;
-import edu.project.utils.connexion;
+import Kids.project.entities.classe;
+import Kids.project.utils.DataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,14 +25,14 @@ public class classeService {
     Statement st;
     
 public  classeService (){
-            cnx2 = connexion.getInstance().getCnx();
+            cnx2 = DataBase.getInstance().getConnection();
 }
     public void ajouterclasse(classe c) throws SQLException{
 
             String requete = "INSERT INTO `classe` (`id_classe`, `libelle_cla`, `description`) VALUES (NULL, ?, ?)";
             PreparedStatement pst = cnx2.prepareStatement(requete);
-            pst.setString(1, c.getLibelleClasse());
-            pst.setString(2, c.getDescClasse());
+            pst.setString(1, c.getLibelle_cla());
+            pst.setString(2, c.getDescription());
             pst.executeUpdate();
             System.out.println("classe ajoute");
     }
@@ -47,9 +47,9 @@ public  classeService (){
             ResultSet rs=st2.executeQuery();
             while(rs.next()){
                 classe c = new classe();
-                c.setIdClasse(rs.getInt("id_classe"));
-                c.setLibelleClasse(rs.getString("libelle_cla"));
-                c.setDescClasse(rs.getString("description"));
+                c.setId_classe(rs.getInt("id_classe"));
+                c.setLibelle_cla(rs.getString("libelle_cla"));
+                c.setDescription(rs.getString("description"));
                 lsp.add(c);
             }
                     
@@ -60,7 +60,7 @@ public  classeService (){
     
     public void deleteclasse(classe c) throws SQLException {
         PreparedStatement pstmt = cnx2.prepareStatement("DELETE FROM classe WHERE classe.`libelle_cla` = ?;");
-        pstmt.setString(1,c.getLibelleClasse());
+        pstmt.setString(1,c.getLibelle_cla());
         pstmt.executeUpdate();
         System.out.println("classe supprime wiouw");
     }
@@ -73,9 +73,9 @@ public  classeService (){
             ResultSet rs=st2.executeQuery();
             while(rs.next()){
                 classe c = new classe();
-                c.setIdClasse(rs.getInt("id_classe"));
-                c.setLibelleClasse(rs.getString("libelle_cla"));
-                c.setDescClasse(rs.getString("description"));
+                c.setId_classe(rs.getInt("id_classe"));
+                c.setLibelle_cla(rs.getString("libelle_cla"));
+                c.setDescription(rs.getString("description"));
                 lsp.add(c);
             }
                     

@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.project.servicies;
+package kids.project.services;
 
-import edu.project.entities.garde;
-import edu.project.entities.matiere;
-import edu.project.utils.connexion;
+import Kids.project.utils.DataBase;
+import kids.project.entities.matiere;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +24,7 @@ public class matiereService {
     Statement st;
     
 public  matiereService (){
-            cnx2 = connexion.getInstance().getCnx();
+            cnx2 = DataBase.getInstance().getConnection();
 }
     public void ajoutermatiere(matiere m) throws SQLException {
        
